@@ -121,6 +121,7 @@ text-decoration: none;
 {
 	float:left;
 	width:200px;
+	height:800px;
 	background-color:rgba(250, 250, 250, 0.7);
 
 }
@@ -128,9 +129,9 @@ text-decoration: none;
 /*tail*/
 .tail
 {
-	position:relative;
+	position:absolute;
+	top:1000px;
 	margin: 0 auto;
-	float:left;
 	width:1200px;
 	height:52px;
 }
@@ -149,26 +150,26 @@ text-decoration: none;
 	height: 32px;
 	margin-bottom: 10px;
 	padding: 1px;
-	background-color:rgba(0, 250, 250, 0.7);
+	background-color:rgba(250, 250, 240, 0.7);
 }
 .rimidebox
 {
 	height: 30px;
 	margin-bottom: 10px;
 	padding: 5px 10px;
-	background-color:rgba(120, 250, 250, 0.7);
+	background-color:rgba(250, 250, 240, 0.7);
 }
 .order_list
 {
 	height: 348px;
 	margin-bottom: 10px;
-	background-color:rgba(250, 0, 250, 0.7);
+	background-color:rgba(250, 250, 220, 0.7);
 }
 
 /*create by zmy for web map*/
 .mapmain
 {	
-	background-color:rgba(250, 255, 250, 1);
+	background-color:rgba(255, 255, 255, 1);
 }
 .path
 {
@@ -177,6 +178,8 @@ text-decoration: none;
 }
 .list
 {
+	margin:0px 10px;
+	padding-top:10px;
 	height:84px;
 	border-radius:4px;
 	background-color:#fafafa;
@@ -193,4 +196,14 @@ text-decoration: none;
 {
 	float:left;
 	width:250px;
+}
+/*create by zmy for connect*/
+.connect
+{
+	margin:10px 10px 25px;
+}
+.connect #comments
+{
+	height:100px;
+	width:400px;
 }

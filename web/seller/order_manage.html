@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>这里是一级页面</title>   
+    <title>我是卖家</title>   
     <meta charset=utf-8>        
-    <link href="style_nomal.css" rel="stylesheet" type="text/css" />
+    <link href="../style_nomal.css" rel="stylesheet" type="text/css" />
   </head>
   <body>
   
@@ -16,12 +16,14 @@
   
   <div class="menu" >
     <div class="search">
+	<form>
 		<div class="searchkey">
         <input type="text" name="searchkey" id="skey" maxlength="100">
         </div>
 		<div  class="searchsub">
 		<input type="submit" value="搜" id="ssub"/>
 		</div>
+	</form>
     </div>
     <div class="usermenu">
 		<p><span>注册</span> | <span>登陆</span> </p>
@@ -38,15 +40,18 @@
 		<div>
 			<h2>我的交易</h2>
 			<ul>
-				<li>我的订单</li>
-				<li>交易记录</li>
-				<li></li>
+				<li><a href="order_manage.html">我的订单</a></li>
+				<li>交易记录</li>			
+			</ul>
+			<h2>商品管理</h2>
+			<ul>
+				<li><a >发布商品</a></li>
+				<li>管理商品</li>			
 			</ul>
 			<h2>投诉与客服</h2>
 			<ul>
-				<li>我的订单</li>
-				<li>交易记录</li>
-				<li>投诉与客服</li>
+				<li>退款管理</li>
+				<li>仲裁反馈</li>
 			</ul>
 		</div>
     </div>
@@ -54,19 +59,27 @@
       <div class="filterbar">
       </div>
 	  <div class="rimidebox">
+		<a>我是卖家</a><span>></span><a href="order_manage.html">我的交易</a><span>></span><a>我的订单</a>
       </div>
 	  <div class="order_list">
 		<form class="orderquery">
 			<label for="itemname">商品名称：</label>
 			<input type="text" size="50" id="itemname" value maxlength="30">
-			<botton class="itemname_button" type="submit">搜索</botton>
+			<input class="itemname_button" type="submit" value="搜索">
 		</form>
-		<form></form>
+		<table class="bought-list" id="order_list"></table>
       </div>
     </div>
   </div>
   
-  <div class="tail" >此处显示  class "tail" 的内容</div>
+  <div class="tail" >
+		<a href="">关于我们</a>
+        <a href="">合作伙伴</a>
+        <a href="">联系客服</a>
+        <a href="../other/connect_us.html">联系我们</a>
+        <a href="../%E7%BD%91%E7%AB%99%E5%9C%B0%E5%9B%BE.html">网站地图</a>
+        <span>© 2013 Black.com 版权所有</span>
+		</div>
   </body>
   
 </html>
