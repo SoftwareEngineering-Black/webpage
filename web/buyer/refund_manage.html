@@ -1,9 +1,79 @@
-<!DOCTYPE html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
 <html>
   <head>
-    <title>这里是一级页面</title>   
-    <meta charset=utf-8>        
-    <link href="style_nomal.css" rel="stylesheet" type="text/css" />
+    <title>退款管理</title>   
+    <meta content="text/html" charset=utf-8>        
+    <link href="../style_nomal.css" rel="stylesheet" type="text/css" />
+	<script type="text/javascript" src="jquery-1.9.1.js"></script>
+	    <script type="text/javascript">
+	$(document).ready(function() {
+		var orderpagenum=10;
+		var pageindex;
+		var url=" ";
+		$.ajax({
+			url:url,
+			async:false,
+			success: function(result){
+				/*获取当前账户信息*/
+				/*获取订单信息*/
+				var jsonpstr=$.getJSON(result);
+				var length=jsonpstr.length;
+				pageindex=1;
+				while(length>0){
+					var divpage=document.createElement("div");
+					div.id=pageindex;  /*页面ID*/
+					pageindex++;
+					if(length<=10)
+						orderpagenum=length;/*判断是否分页*/
+					var tbody;
+					for(var index=0;index<orderpagenum;index++){
+						tbody=document.createElement("tbody");
+						
+						var trNode1=document.createElement("tr");
+						var tdNode1=document.createElement("td");
+						tdNode1.innerHTML=jsonpstr[index].id;/*订单ID*/
+						var tdNode2=document.createElement("td");		
+						tdNode2.innerHTML=jsonpstr[index].item/*商品名称*/
+						var tdNode3=document.createElement("td");
+						tdNode3.className="seller";
+						tdNode3.innerHTML=jsonpstr[index].X;/*卖家*/
+						var tdNode4=document.createElement("td");
+						tdNode4.className="price";
+						tdNode4.innerHTML=jsonpstr[index].X;/*交易金额*/
+						var tdNode5=document.createElement("td");
+						tdNode5.className="after_service"; /*退款时间*/
+						tdNode5.innerHTML="退款";
+						var tdNode6=document.createElement("td");
+						tdNode6.className="logistic";
+						tdNode6.innerHTML=jsonpstr[index].xx;/*申请时间*/
+						var tdNode7=document.createElement("td");
+						tdNode7.className="trade_state";
+						tdNode7.innerHTML="买家未付款"; /*需要判断之后输出信息*/
+						var tdNode8=document.createElement("td");
+						tdNode8.innerHTML="付款";
+						
+						trNode1.appendChild(tdNode1);
+						trNode1.appendChild(tdNode2);
+						trNode1.appendChild(tdNode3);
+						trNode1.appendChild(tdNode4);
+						trNode1.appendChild(tdNode5);
+						trNode1.appendChild(tdNode6);
+						trNode1.appendChild(tdNode7);
+						trNode1.appendChild(tdNode8);
+						trNode1.appendChild(tdNode9);
+						tbody.appendChild(trNode1);
+						}
+						length=length-orderpagenum;
+						divpage.appendChild(tbody);
+					}
+							/*将订单详情展示出来*/
+				var table=document.getElementById("order_list");
+				table.appendChild(divpage);
+				}
+			});
+    })
+    </script>
   </head>
   <body>
   
@@ -16,12 +86,14 @@
   
   <div class="menu" >
     <div class="search">
+	<form>
 		<div class="searchkey">
         <input type="text" name="searchkey" id="skey" maxlength="100">
         </div>
 		<div  class="searchsub">
 		<input type="submit" value="搜" id="ssub"/>
 		</div>
+	</form>
     </div>
     <div class="usermenu">
 		<p><span>注册</span> | <span>登陆</span> </p>
@@ -38,9 +110,14 @@
 		<div>
 			<h2>我的交易</h2>
 			<ul>
-				<li>我的订单</li>
-				<li>交易记录</li>
-				<li>投诉与客服</li>
+				<li><a href="order_manage.html">我的订单</a></li>
+				<li>购物车</li>
+				<li>交易记录</li>			
+			</ul>
+			<h2>投诉与客服</h2>
+			<ul>
+				<li><a href="refund_manage.html">退款管理</li>
+				<li>仲裁反馈</li>
 			</ul>
 		</div>
     </div>
@@ -48,19 +125,76 @@
       <div class="filterbar">
       </div>
 	  <div class="rimidebox">
+		<a>我是买家</a><span>></span><a href="order_manage.html">投诉与客服</a><span>></span><a>退款管理</a>
       </div>
-	  <div class="order_list">
-		<form class="orderquery">
-			<label for="itemname">商品名称：</label>
-			<input type="text" size="50" id="itemname" value maxlength="30">
-			<botton class="itemname_button" type="submit">搜索</botton>
-		</form>
-		<form></form>
+	  <form class="refund_search">
+	  <div class="refund_search">
+			<table>
+				<tr>
+					<td><label>订单编号：</label><input type="text" id="order_id"></td>
+					<td><label>退款申请时间：</label><select id="refund_apply">
+							<option value="0">近三个月</option>
+							<option value="1">三个月以前</option>
+						</select></td>
+					<td><label>从：</label><input type="text" id="order_id"></td>
+					<td><label>到：</label><input type="text" id="order_id"></td>
+				</tr>
+				<tr>
+					<td><label>退款状态：</label><select id="refund_state">
+							<option value="all">全部</option>
+							<option value="STATUS_WAIT_SELLER_AGREE">退款申请等待卖家确认中</option>
+							<option value="STATUS_WAIT_BUYER_AGREE">卖家不同意协议，等待买家修改</option>
+							<option value="STATUS_SUCCESS">退款成功</option>
+							<option value="STATUS_CLOSE">退款关闭</option>
+						</select></td>
+				</tr>
+				<tr><td><button id="search_refund_button">搜索</button></td></tr>
+			</table>
+	  </div>
+	  </form>
+	  <div class="refund_list">
+			<table>
+				<thead>
+					<tr>
+						<th>订单编号</th>
+						<th>商品信息</th>
+						<th>卖家</th>
+						<th>交易金额</th>
+						<th>退款时间</th>
+						<th>申请时间</th>
+						<th>结束时间</th>
+						<th>退款状态</th>
+						<th>退款操作</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>00001</td>
+						<td>衣服</td>
+						<td>小燕燕</td>
+						<td>10</td>
+						<td>10</td>
+						<td>2012-09-17 22:25</td>
+						<td>2012-09-27 22:25</td>
+						<td>退款成功</td>
+						<td><a>查看退款</a></td>
+					</tr>
+				</tbody>
+			</table>
+	  </div>
+	  <div class="pages">翻页</div>
       </div>
     </div>
   </div>
   
-  <div class="tail" >此处显示  class "tail" 的内容</div>
+  <div class="tail" >
+		<a href="">关于我们</a>
+        <a href="">合作伙伴</a>
+        <a href="">联系客服</a>
+        <a href="../other/connect_us.html">联系我们</a>
+        <a href="../%E7%BD%91%E7%AB%99%E5%9C%B0%E5%9B%BE.html">网站地图</a>
+        <span>© 2013 Black.com 版权所有</span>
+		</div>
   </body>
   
 </html>

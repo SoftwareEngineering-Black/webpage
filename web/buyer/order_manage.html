@@ -5,6 +5,103 @@
     <meta content="text/html" charset=utf-8>        
     <link href="../style_nomal.css" rel="stylesheet" type="text/css" />
 	<script type="text/javascript" src="jquery-1.9.1.js"></script>
+	    <script type="text/javascript">
+	$(document).ready(function() {
+		var orderpagenum=10;
+		var pageindex;
+		var url=" ";
+		$.ajax({
+			url:url,
+			async:false,
+			success: function(result){
+				/*获取当前账户信息*/
+				/*获取订单信息*/
+				var jsonpstr=$.getJSON(result);
+				var length=jsonpstr.length;
+				pageindex=1;
+				while(length>0){
+					var divpage=document.createElement("div");
+					div.id=pageindex;  /*页面ID*/
+					pageindex++;
+					if(length<=10)
+						orderpagenum=length;/*判断是否分页*/
+					var tbody;
+					for(var index=0;index<orderpagenum;index++){
+						tbody=document.createElement("tbody");
+						
+						var trNode1=document.createElement("tr");
+						var tdNode1=document.createElement("td");
+						
+						/*订单编号*/
+						var spanNode1=document.createElement("span");
+						var labelNode=document.createElement("label");
+						var checkNode=document.createElement("input");
+						checkNode.type="checkbox";
+						checkNode.className="selector";
+						checkNode.id=jsonpstr[index].id;/*订单ID*/
+						checkNode.innerHTML="订单编号";
+						var spanNode2=document.createElement("span");
+						spanNode2.className="order_num";
+						spanNode2.innerHTML=jsonpstr[index].id;/*订单ID*/
+						labelNode.appendChild(checkNode);
+						lableNode.appendChild(spanNode2);
+						spanNode1.appendChild(lableNode);
+						
+						/*成交时间*/
+						var spanNode3=document.createElement("span");
+						spanNode3.className="deal-time";
+						spanNode3.innerHTML="成交时间"+jsonpstr[index].X ; /*时间*/
+						var spanNode4=document.createElement("span");
+						spanNode4.className="seller";
+						spanNode4.innerHTML="卖家姓名";
+						
+						tdNode1.appendChild(spanNode1);
+						tdNode1.appendChild(spanNode3);
+						tdNode1.appendChild(spanNode4);
+						trNode1.appendChild(tdNode1);
+						
+						var trNode2=document.createElement("tr");
+						trNode2.className="order_item";
+						var tdNode2=document.createElement("td");
+						tdNode2.className="item";
+						tdNode2.innerHTML=jsonpstr[index].item;/*商品名称*/
+						var tdNode3=document.createElement("td");
+						tdNode3.className="price";
+						tdNode3.innerHTML=jsonpstr[index].X;/*价格*/
+						var tdNode4=document.createElement("td");
+						tdNode4.className="num";
+						tdNode4.innerHTML=jsonpstr[index].X;/*数量*/
+						var tdNode5=document.createElement("td");
+						tdNode5.className="after_service"; /*退款*/
+						tdNode5.innerHTML="退款";
+						var tdNode6=document.createElement("td");
+						tdNode6.className="logistic";
+						tdNode6.innerHTML=jsonpstr[index].xx;/*物流号*/
+						var tdNode7=document.createElement("td");
+						tdNode7.className="trade_state";
+						tdNode7.innerHTML="买家未付款"; /*需要判断之后输出信息*/
+						var tdNode8=document.createElement("td");
+						tdNode8.innerHTML="付款";
+						trNode2.appendChild(tdNode2);
+						trNode2.appendChild(tdNode3);
+						trNode2.appendChild(tdNode4);
+						trNode2.appendChild(tdNode5);
+						trNode2.appendChild(tdNode6);
+						trNode2.appendChild(tdNode7);
+						trNode2.appendChild(tdNode8);
+						tbody.appendChild(trNode1);
+						tbody.appendChild(trNode2);
+						}
+						length=length-orderpagenum;
+						divpage.appendChild(tbody);
+					}
+							/*将订单详情展示出来*/
+				var table=document.getElementById("order_list");
+				table.appendChild(divpage);
+				}
+			});
+    })
+    </script>
   </head>
   <body>
   
