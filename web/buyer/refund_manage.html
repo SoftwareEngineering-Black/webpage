@@ -37,21 +37,22 @@
 						tdNode2.innerHTML=jsonpstr[index].item/*商品名称*/
 						var tdNode3=document.createElement("td");
 						tdNode3.className="seller";
-						tdNode3.innerHTML=jsonpstr[index].X;/*卖家*/
+						tdNode3.innerHTML=jsonpstr[index].seller;/*卖家*/
 						var tdNode4=document.createElement("td");
 						tdNode4.className="price";
-						tdNode4.innerHTML=jsonpstr[index].X;/*交易金额*/
+						tdNode4.innerHTML=jsonpstr[index].totalprice;/*交易金额*/
 						var tdNode5=document.createElement("td");
-						tdNode5.className="after_service"; /*退款时间*/
-						tdNode5.innerHTML="退款";
+						tdNode5.className="start_time";
+						tdNode5.innerHTML=jsonpstr[index].xx;/*申请时间*/
 						var tdNode6=document.createElement("td");
-						tdNode6.className="logistic";
-						tdNode6.innerHTML=jsonpstr[index].xx;/*申请时间*/
+						tdNode6.className="finish_time";
+						tdNode6.innerHTML=jsonpstr[index].xx; /*结束时间*/
 						var tdNode7=document.createElement("td");
-						tdNode7.className="trade_state";
-						tdNode7.innerHTML="买家未付款"; /*需要判断之后输出信息*/
+						tdNode7.className="refund_state";
+						tdNode7.innerHTML=jsonpstr[index].xx;/*退款状态*/
 						var tdNode8=document.createElement("td");
-						tdNode8.innerHTML="付款";
+						tdNode8.className="refund_op";
+						tdNode8.innerHTML=jsonpstr[index].xx;/*退款操作*/
 						
 						trNode1.appendChild(tdNode1);
 						trNode1.appendChild(tdNode2);
@@ -61,14 +62,14 @@
 						trNode1.appendChild(tdNode6);
 						trNode1.appendChild(tdNode7);
 						trNode1.appendChild(tdNode8);
-						trNode1.appendChild(tdNode9);
+
 						tbody.appendChild(trNode1);
 						}
 						length=length-orderpagenum;
 						divpage.appendChild(tbody);
 					}
 							/*将订单详情展示出来*/
-				var table=document.getElementById("order_list");
+				var table=document.getElementById("refund_list");
 				table.appendChild(divpage);
 				}
 			});
@@ -156,28 +157,26 @@
 			<table>
 				<thead>
 					<tr>
-						<th>订单编号</th>
-						<th>商品信息</th>
-						<th>卖家</th>
-						<th>交易金额</th>
-						<th>退款时间</th>
-						<th>申请时间</th>
-						<th>结束时间</th>
-						<th>退款状态</th>
-						<th>退款操作</th>
+						<th class="order_num">订单编号</th>
+						<th class="item">商品信息</th>
+						<th class="seller">卖家</th>
+						<th class="price">交易金额</th>
+						<th class="start_time">申请时间</th>
+						<th class="finish_time">结束时间</th>
+						<th class="refund_state">退款状态</th>
+						<th class="refund_op">退款操作</th>
 					</tr>
 				</thead>
 				<tbody>
 					<tr>
-						<td>00001</td>
-						<td>衣服</td>
-						<td>小燕燕</td>
-						<td>10</td>
-						<td>10</td>
-						<td>2012-09-17 22:25</td>
-						<td>2012-09-27 22:25</td>
-						<td>退款成功</td>
-						<td><a>查看退款</a></td>
+						<td  class="order_num">00001</td>
+						<td  class="item">衣服</td>
+						<td  class="seller">小燕燕</td>
+						<td  class="price">10</td>
+						<td class="start_time">2012-09-17 22:25</td>
+						<td class="finish_time">2012-09-27 22:25</td>
+						<td class="refund_state">退款成功</td>
+						<td class="refund_op"><a>查看退款</a></td>
 					</tr>
 				</tbody>
 			</table>
