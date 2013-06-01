@@ -60,58 +60,15 @@
 	  <div class="rimidebox">
 		<a>我是买家</a><span>></span><a href="refund_manage.html">投诉与客服</a><span>></span><a>仲裁反馈</a>
       </div>
-	  <form class="refund_search">
-	  <div class="refund_search">
-			<table>
-				<tr>
-					<td><label>订单编号：</label><input type="text" id="order_id"></td>
-					<td><label>退款申请时间：</label><select id="refund_apply">
-							<option value="0">近三个月</option>
-							<option value="1">三个月以前</option>
-						</select></td>
-					<td><label>从：</label><input type="text" id="order_id"></td>
-					<td><label>到：</label><input type="text" id="order_id"></td>
-				</tr>
-				<tr>
-					<td><label>退款状态：</label><select id="refund_state">
-							<option value="all">全部</option>
-							<option value="STATUS_WAIT_SELLER_AGREE">退款申请等待卖家确认中</option>
-							<option value="STATUS_WAIT_BUYER_AGREE">卖家不同意协议，等待买家修改</option>
-							<option value="STATUS_SUCCESS">退款成功</option>
-							<option value="STATUS_CLOSE">退款关闭</option>
-						</select></td>
-				</tr>
-				<tr><td><button id="search_refund_button">搜索</button></td></tr>
-			</table>
-	  </div>
-	  </form>
-	  <div class="refund_list">
-			<table>
-				<thead>
-					<tr>
-						<th class="order_num">订单编号</th>
-						<th class="item">商品信息</th>
-						<th class="seller">卖家</th>
-						<th class="price">交易金额</th>
-						<th class="start_time">申请时间</th>
-						<th class="finish_time">结束时间</th>
-						<th class="refund_state">退款状态</th>
-						<th class="refund_op">退款操作</th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr>
-						<td  class="order_num">00001</td>
-						<td  class="item">衣服</td>
-						<td  class="seller">小燕燕</td>
-						<td  class="price">10</td>
-						<td class="start_time">2012-09-17 22:25</td>
-						<td class="finish_time">2012-09-27 22:25</td>
-						<td class="refund_state">退款成功</td>
-						<td class="refund_op"><a>查看退款</a></td>
-					</tr>
-				</tbody>
-			</table>
+
+	  <div class="feedback_list">
+			<h2>仲裁反馈</h2>
+			<form>
+				<ul class="tab_step">
+					<li><a>我发起的投诉</a></li>
+					<li><a>我收到的投诉</a></li>
+				</ul>
+			</form>
 	  </div>
 	  <div class="pages">翻页</div>
       </div>
