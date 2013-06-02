@@ -4,7 +4,9 @@
     <title>我是买家</title>   
     <meta content="text/html" charset=utf-8>        
     <link href="../style_nomal.css" rel="stylesheet" type="text/css" />
-	<script type="text/javascript" src="jquery-1.9.1.js"></script>
+	<link href="order_manage.css" rel="stylesheet" type="text/css" />
+	<script type="text/javascript" src="../jquery-1.9.1.js"></script>
+	<script type="text/javascript" src="../pagenav1.1.cn.js"></script>
 	<script type="text/javascript">
 	$(document).ready(function() {
 		var orderpagenum=10;
@@ -101,6 +103,23 @@
 				table.appendChild(divpage);
 				}
 			});
+			
+		pageNav.pre="上一页";
+		pageNav.next="下一页";
+		var page=-1;
+		pageNav.fn=function(p,pn){
+			var id="page"+p;
+			document.getElementById(id).style.display="inline";
+			if(page==-1)
+				page=1;
+			else{
+				var idold="page"+p;
+				document.getElementById(idold).style.display="none";
+				page=p;
+			}
+		};
+		pageNav.go(1,pageindex);
+    })
     })
     </script>
   </head>
@@ -140,7 +159,7 @@
 			<h2>我的交易</h2>
 			<ul>
 				<li><a href="order_manage.html">我的订单</a></li>
-				<li>购物车</li>
+				<li><a href="spcart.html">购物车</a></li>
 				<li>交易记录</li>			
 			</ul>
 			<h2>投诉与客服</h2>
@@ -154,7 +173,7 @@
       <div class="filterbar">
       </div>
 	  <div class="rimidebox">
-		<a>我是买家</a><span>></span><a href="order_manage.html">我的交易</a><span>></span><a>我的订单</a>
+		<a  href="order_manage.html">我是买家</a><span>></span><a href="order_manage.html">我的交易</a><span>></span><a href="order_manage.html">我的订单</a>
       </div>
 	  <div class="order_list">
 		<form class="orderquery">
@@ -214,7 +233,7 @@
 			</tr>
 		</tbody>
 		</table>
-		<div class="pages">翻页</div>
+		<div class="pageNac"></div>
       </div>
     </div>
   </div>
