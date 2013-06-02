@@ -1,9 +1,127 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>我是卖家</title>   
-    <meta charset=utf-8>        
+    <title>我是买家</title>   
+    <meta content="text/html" charset=utf-8>        
     <link href="../style_nomal.css" rel="stylesheet" type="text/css" />
+	<link href="order_manage.css" rel="stylesheet" type="text/css" />
+	<script type="text/javascript" src="../jquery-1.9.1.js"></script>
+	<script type="text/javascript" src="../pagenav1.1.cn.js"></script>
+	<script type="text/javascript">
+	$(document).ready(function() {
+		var orderpagenum=10;
+		var pageindex;
+		var url=" ";
+		$.ajax({
+			url:url,
+			async:false,
+			success: function(result){
+				/*获取当前账户信息*/
+				/*获取订单信息*/
+				var jsonpstr=$.getJSON(result);
+				var length=jsonpstr.length;
+				pageindex=1;
+				while(length>0){
+					var divpage=document.createElement("div");
+					div.id=pageindex;  /*页面ID*/
+					pageindex++;
+					if(length<=10)
+						orderpagenum=length;/*判断是否分页*/
+					var tbody;
+					for(var index=0;index<orderpagenum;index++){
+						tbody=document.createElement("tbody");
+						
+						var trNode1=document.createElement("tr");
+						var tdNode1=document.createElement("td");
+						
+						/*订单编号*/
+						var spanNode1=document.createElement("span");
+						var labelNode=document.createElement("label");
+						var checkNode=document.createElement("input");
+						checkNode.type="checkbox";
+						checkNode.className="selector";
+						checkNode.id=jsonpstr[index].id;/*订单ID*/
+						checkNode.innerHTML="订单编号";
+						var spanNode2=document.createElement("span");
+						spanNode2.className="order_num";
+						spanNode2.innerHTML=jsonpstr[index].id;/*订单ID*/
+						labelNode.appendChild(checkNode);
+						lableNode.appendChild(spanNode2);
+						spanNode1.appendChild(lableNode);
+						
+						/*成交时间*/
+						var spanNode3=document.createElement("span");
+						spanNode3.className="deal-time";
+						spanNode3.innerHTML="成交时间"+jsonpstr[index].X ; /*时间*/
+						var spanNode4=document.createElement("span");
+						spanNode4.className="seller";
+						spanNode4.innerHTML="卖家姓名";
+						
+						tdNode1.appendChild(spanNode1);
+						tdNode1.appendChild(spanNode3);
+						tdNode1.appendChild(spanNode4);
+						trNode1.appendChild(tdNode1);
+						
+						var trNode2=document.createElement("tr");
+						trNode2.className="order_item";
+						var tdNode2=document.createElement("td");
+						tdNode2.className="item";
+						tdNode2.innerHTML=jsonpstr[index].item;/*商品名称*/
+						var tdNode3=document.createElement("td");
+						tdNode3.className="price";
+						tdNode3.innerHTML=jsonpstr[index].X;/*价格*/
+						var tdNode4=document.createElement("td");
+						tdNode4.className="num";
+						tdNode4.innerHTML=jsonpstr[index].X;/*数量*/
+						var tdNode5=document.createElement("td");
+						tdNode5.className="after_service"; /*退款*/
+						tdNode5.innerHTML="退款";
+						var tdNode6=document.createElement("td");
+						tdNode6.className="logistic";
+						tdNode6.innerHTML=jsonpstr[index].xx;/*物流号*/
+						var tdNode7=document.createElement("td");
+						tdNode7.className="trade_state";
+						tdNode7.innerHTML="买家未付款"; /*需要判断之后输出信息*/
+						var tdNode8=document.createElement("td");
+						tdNode8.className="trade_op";
+						tdNode8.innerHTML="付款";
+						trNode2.appendChild(tdNode2);
+						trNode2.appendChild(tdNode3);
+						trNode2.appendChild(tdNode4);
+						trNode2.appendChild(tdNode5);
+						trNode2.appendChild(tdNode6);
+						trNode2.appendChild(tdNode7);
+						trNode2.appendChild(tdNode8);
+						tbody.appendChild(trNode1);
+						tbody.appendChild(trNode2);
+						}
+						length=length-orderpagenum;
+						divpage.appendChild(tbody);
+					}
+							/*将订单详情展示出来*/
+				var table=document.getElementById("order_list");
+				table.appendChild(divpage);
+				}
+			});
+			
+		pageNav.pre="上一页";
+		pageNav.next="下一页";
+		var page=-1;
+		pageNav.fn=function(p,pn){
+			var id="page"+p;
+			document.getElementById(id).style.display="inline";
+			if(page==-1)
+				page=1;
+			else{
+				var idold="page"+p;
+				document.getElementById(idold).style.display="none";
+				page=p;
+			}
+		};
+		pageNav.go(1,pageindex);
+    })
+    })
+    </script>
   </head>
   <body>
   
@@ -50,8 +168,8 @@
 			</ul>
 			<h2>投诉与客服</h2>
 			<ul>
-				<li>退款管理</li>
-				<li>仲裁反馈</li>
+				<li><a href="refund_manage.html">退款管理</a></li>
+				<li><a href="arbitrate_feedback.html">仲裁反馈</a></li>
 			</ul>
 		</div>
     </div>
@@ -59,7 +177,7 @@
       <div class="filterbar">
       </div>
 	  <div class="rimidebox">
-		<a>我是卖家</a><span>></span><a href="order_manage.html">我的交易</a><span>></span><a>我的订单</a>
+		<a  href="order_manage.html">我是卖家</a><span>></span><a href="order_manage.html">我的交易</a><span>></span><a href="order_manage.html">我的订单</a>
       </div>
 	  <div class="order_list">
 		<form class="orderquery">
@@ -67,7 +185,59 @@
 			<input type="text" size="50" id="itemname" value maxlength="30">
 			<input class="itemname_button" type="submit" value="搜索">
 		</form>
-		<table class="bought-list" id="order_list"></table>
+		<table class="bought-list" id="order_list">
+		<thead>
+			<tr class="col_name">
+				<th></th>
+				<th class="item">商品</th>
+				<th class="price">单价(元)</th>
+				<th class="num">数量</th>
+				<th class="after_service">售后</th>
+				<th class="logistic">物流状态</th>
+				<th class="trade_state">
+					<div  class="trade_state">
+						<select id="TrandeStatesHandle">
+							<option data-msg="交易状态" value="ALL">交易状态</option>
+							<option data-msg="等待买家付款" value="ALL">等待买家付款</option>
+							<option data-msg="买家已付款" value="ALL">买家已付款</option>
+							<option data-msg="卖家已发货" value="ALL">卖家已发货</option>
+							<option data-msg="交易成功" value="ALL">交易成功</option>
+							<option data-msg="交易关闭" value="ALL">交易关闭</option>
+							<option data-msg="退款中的订单" value="ALL">退款中的订单</option>
+						</select>
+					</div>
+				</th>
+				<th>交易操作</th>
+			</tr>
+			<tr class="toolbar">
+				<td>
+					<label><input type="checkbox" class="all-selector" id="AllSelector">全选</label>
+					<a href="#">合并付款</a>
+					<a href="#">批量确认收货</a>
+				</td>
+				
+				<td class="last-col" colspan="2"><div></div></td>
+			</tr>
+		</thead>
+		<tbody>
+			<tr class="order_head">
+				<td>
+				<span><label><input type="checkbox" class="selector" id="00001" >订单编号：<span class="order_num">00001</span></label></span>
+				<span class="deal-time">成交时间：xxxxxx</span>
+				<span class="seller">卖家姓名</span></td>
+			</tr>
+			<tr class="order_item">
+				<td class="item">aaa</td>
+				<td class="price">10.00</td>
+				<td class="num">10</td>
+				<td class="after_service">退款</td>
+				<td class="logistic">000001</td>
+				<td class="trade_state">买家未付款</td>
+				<td class="trade_op">付款</td>
+			</tr>
+		</tbody>
+		</table>
+		<div class="pageNac"></div>
       </div>
     </div>
   </div>
