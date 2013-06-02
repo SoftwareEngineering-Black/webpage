@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+  <head runat="server">
+    <title>修改系统配置</title>   
+    <meta charset=utf-8>        
+	<link href="../css/style_nomal.css" rel="stylesheet" type="text/css" />
+    <link href="../css/system_config.css" rel="stylesheet" type="text/css" />
+  </head>
+  <script language="VB" runat=server>
+　　Sub UploadBtn_Click(Sender as Object, E as EventArgs)
+　　UploadFile.PostedFile.SaveAs(Server.MapPath("test.jpg"))
+　　MyImage.ImageUrl = "test.jpg"
+　　MyImage.Visible = true
+　　End Sub
+　</script>
+  <body>
+  
+  
+  <div class="tophead" >
+  
+  <div class="logo">
+  
+  </div>
+  
+  <div class="menu" >
+    <div class="usermenu">
+		<p><span>注册</span> | <span>登陆</span> | <span>登出</span></p>
+    </div>
+  </div>
+  
+  </div>
+  
+  <div class="main">
+  	<div class="menulist">
+		<div class="menulevel0">
+			<h1>导航栏</h1>
+		</div>
+		<div>
+			<h2>系统  </h2>
+			<ul>
+				<li>统计信息</li>
+				<li>异常日志</li>
+				<li>系统配置</li>
+			</ul>
+			<h2>管理员</h2>
+			<ul>
+				<li>增加系统管理员</li>
+				<li>增加订单管理员</li>
+			</ul>
+			<h2>用户  </h2>
+			<ul>
+				<li>用户账户管理</li>
+				<li>实名制认证  </li>
+				<li>黑名单管理  </li>
+			</ul>
+		</div>
+    </div>
+	<div class="any">
+	</div>
+    <div class="shopping_main">
+      <div class="subtitle">
+	     <br>
+		 <br>
+		 <h4>系统配置</h4>
+		 <br>
+	  </div>
+	  <hr/>
+	  <div class="stop_system">
+         <h4>暂停系统：</h4>
+		 <br>
+		 <h2>
+         <input id="stop" type="radio" name="comment" value="0" />
+         <label for="allone">系统停止处理所有事务</label>
+         </h2>
+		 <br>
+         <h2>
+         <input id="restart" type="radio" name="comment" value="1" checked="checked"/>
+         <label for="allone">系统重新开始对事务进行处理</label>
+         </h2>
+	  </div>
+	  <hr/>
+	  <div class="disconnect">
+         <h4>断开数据库：</h4>
+		 <br>
+		 <h2>
+         <input id="stop" type="radio" name="comment1" value="0" />
+         <label for="allone">系统停止和数据库的链接</label>
+         </li>
+		 <br>
+         <h2>
+         <input id="restart" type="radio" name="comment1" value="1" checked="checked"/>
+         <label for="allone5">系统恢复和数据库的链接</label>
+         </h2>
+	  </div>	
+      <hr/>	  
+	  <div class="concurrent">
+	     <h4>系统并发等级：</h4>
+         <table align='left'>
+	     <tr algin='right'><td rowspan='2'><h3>总响应数:<h3></td><td><input type='text' id='textarea' name='responder'/></td></tr>
+	     <tr></tr>
+		 <tr></tr>	
+		 <tr algin='right'><td rowspan='2'><h3>每个ip允许的响应数:<h3></td><td><input type='text' id='textarea' name='responder'/></td></tr>
+	     <tr></tr>
+         <tr></tr>	
+		 <tr><td><input type="submit" id="submit" value="提交"></td></tr>
+		 <tr></tr>		
+		 </table>
+	  </div>
+	  <hr/>	  
+	  <div class="layin">
+        <h4>导入数据库：</h4>
+        <br>
+		<form action="fileupload.aspx" method="post" enctype="multipart/form-data" runat="server">
+		<h4>选择要上传的文件:<input id="MyFile" type="file" runat="server"><h4>
+		<br><br>
+        <input type=submit value="Upload!"  OnServerclick="UploadBtn_Click" runat="server">
+        </form>
+      </div>
+	  <hr/>
+	  <div class="layout">
+        <h4>导出数据库：</h4>
+		<br>
+		<table align='left'><tr algin='right'><td rowspan='2'><h3>下载链接:<h3></td><td><input type='text' id='textarea' name='responder'/>
+		<tr></tr>	
+		<tr></tr>	
+		<tr><td><input type="submit" id="submit" value="提交"></td></tr></td></tr></table>
+	  </div>
+    </div>    
+  <div class="tail" >此处显示  class "tail" 的内容</div>
+  </body>
+</html>

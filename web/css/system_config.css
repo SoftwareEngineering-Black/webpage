@@ -1,0 +1,36 @@
+@charset "utf-8";
+/* CSS Document */
+
+.any
+{
+   float:left;
+   height:1580px;
+   width:50px;
+}
+
+.stop_system
+{
+	height: 120px;
+	width: 800px;
+}
+.disconnect
+{
+	height: 120px;
+	width: 800px;
+}
+.concurrent
+{
+	height: 120px;
+	width: 800px;
+}
+.layin
+{
+	height: 220px;
+	width: 800px;
+}
+.layout
+{
+	height: 120px;
+	width: 800px;
+}
+
