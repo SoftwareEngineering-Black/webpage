@@ -4,52 +4,56 @@
   <head>
     <title>网站地图</title>   
     <meta charset=utf-8>        
+	<link href="../css/bootstrap.css" rel="stylesheet" type="text/css" />
     <link href="../css/style_nomal.css" rel="stylesheet" type="text/css" />
 	<link href="../css/map.css" rel="stylesheet" type="text/css" />
   </head>
   <body>
   
   
-  <div class="tophead" >
-  
-  <div class="logo">
-  
-  </div>
-  
-  <div class="menu" >
-    <div class="search">
+   <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container-fluid">
 
+          <a class="brand" href="#">Online Payment</a>
+          <div class="nav-collapse collapse">
+            <p class="navbar-text pull-right">
+              Logged in as <a href="#" class="navbar-link">Username</a>
+            </p>
+            <ul class="nav">
+              <li><a href="#">账户设置</a></li>
+              <li><a href="#about">我是买家</a></li>
+              <li><a href="#contact">我是卖家</a></li>
+			  <li><a href="#contact">淘宝贝</a></li>
+			  <li><a href="#contact">在线预订</a></li>
+            </ul>
+          </div><!--/.nav-collapse -->
+        </div>
+      </div>
     </div>
-    <div class="usermenu">
-		<p><span>注册</span> | <span>登陆</span> </p>
-    </div>
-  </div>
-  
-  </div>
-  
-  <div class="main">
-  <div class="mapmain">
+  <div class="container-fluid">
+  <div class="row-fluid">
 	<div class="path">
-		<h2><br/><a href="index.html">首页</a><span>></span>网站地图</h2>
+		<p><br/><a href="index.html">首页</a><span>></span>网站地图</p>
 	</div>
 	<div class="map">
 		<div class="buyer">
-			<h2>我是买家</h2>
+			<h4>我是买家</h4>
 			<div class="list">
 				<ul>
 					<li>
-						<h3>成为会员</h3>
+						<h4>成为会员</h4>
 						<span><a>注册</a></span>
 						<span><a>登陆</a></span>
 					</li>
 					<li>
-						<h3>交易管理</h3>
+						<h4>交易管理</h4>
 						<span><a href="../buyer/spcart.html">购物车</a></span>
 						<span><a href="../buyer/order_manage.html">订单管理</a></span>
 						<span><a>交易记录</a></span>
 					</li>
 					<li>
-						<h3>客服与退款</h3>
+						<h4>客服与退款</h4>
 						<span><a href="../buyer/refund_manage.html">退款管理</a></span>
 						<span><a href="../buyer/arbitrate_feedback.html">仲裁反馈</a></span>
 					</li>
@@ -57,26 +61,26 @@
 			</div>
 		</div>
 		<div class="seller">
-			<h2>我是卖家</h2>
+			<h4>我是卖家</h4>
 			<div class="list">
 				<ul>
 					<li>
-						<h3>成为会员</h3>
+						<h4>成为会员</h4>
 						<span><a>注册</a></span>
 						<span><a>登陆</a></span>
 					</li>
 					<li>
-						<h3>交易管理</h3>
+						<h4>交易管理</h4>
 						<span><a href="../seller/order_manage.html">订单管理</a></span>
 						<span><a>交易记录</a></span>
 					</li>
 					<li>
-						<h3>商品管理</h3>
+						<h4>商品管理</h4>
 						<span><a>发布商品</a></span>
 						<span><a>管理商品</a></span>
 					</li>
 					<li>
-						<h3>客服与退款</h3>
+						<h4>客服与退款</h4>
 						<span><a>退款管理</a></span>
 						<span><a>仲裁反馈</a></span>
 					</li>
@@ -84,21 +88,21 @@
 			</div>
 		</div>
 		<div class="account">
-			<h2>账户管理</h2>
+			<h4>账户管理</h4>
 			<div class="list">
 				<ul>
 					<li>
-						<h3>账号管理</h3>
+						<h4>账号管理</h4>
 						<span><a>修改信息</a></span>
 						<span><a>安全设置</a></span>
 						<span><a>修改收货地址</a></span>
 					</li>
 					<li>
-						<h3>信息认证</h3>
+						<h4>信息认证</h4>
 						<span><a>实名认证</a></span>
 					</li>
 					<li>
-						<h3>账户信息</h3>
+						<h4>账户信息</h4>
 						<span><a>查看账户信息</a></span>
 						<span><a>账户充值/提现</a></span>
 					</li>
@@ -106,16 +110,16 @@
 			</div>
 		</div>
 		<div class="shop">
-			<h2><a href="booking/bookindex.html">淘宝贝</a></h2>
+			<h4><a href="../booking/bookindex.html">淘宝贝</a></h4>
 			<div class="list">
 				<ul>
 					<li>
-						<h3>酒店预订</h3>
+						<h4>酒店预订</h4>
 						<span><a href="../booking/hotelbooking.html">酒店预订</a></span>
 						<span><a href="../booking/hotelbooking.html">旅馆预订</a></span>
 					</li>
 					<li>
-						<h3>机票预订</h3>
+						<h4>机票预订</h4>
 						<span><a href="../booking/interflight.html">国际航班</a></span>
 						<span><a href="../booking/domeflight.html">国内航班</a></span>
 					</li>
@@ -123,15 +127,15 @@
 			</div>
 		</div>
 		<div class="audit">
-			<h2>审计管理</h2>
+			<h4>审计管理</h4>
 			<div class="list">
 				<ul>
 					<li>
-						<h3>开始审计</h3>
+						<h4>开始审计</h4>
 						<span><a>登陆</a></span>
 					</li>
 					<li>
-						<h3>审计项目</h3>
+						<h4>审计项目</h4>
 						<span><a>仲裁处理</a></span>
 						<span><a>异常处理</a></span>	
 					</li>
@@ -139,22 +143,22 @@
 			</div>
 		</div>
 		<div class="adimin">
-			<h2>后台管理</h2>
+			<h4>后台管理</h4>
 			<div class="list">
 				<ul>
 					<li>
-						<h3>系统管理</h3>
+						<h4>系统管理</h4>
 						<span><a>统计信息</a></span>
 						<span><a>异常日志</a></span>
-						<span><a href="../admin/system_config.html">系统配置</a></span>
+						<span><a>系统配置</a></span>
 					</li>
 					<li>
-						<h3>管理员管理</h3>
-						<span><a href="../admin/add_system_administrator.html">系统管理员</a></span>
-						<span><a href="../admin/add_auditor.html">订单管理员</a></span>
+						<h4>管理员管理</h4>
+						<span><a>系统管理员</a></span>
+						<span><a>订单管理员</a></span>
 					</li>
 					<li>
-						<h3>用户管理</h3>
+						<h4>用户管理</h4>
 						<span><a>用户账户管理</a></span>
 						<span><a>实名认证</a></span>
 						<span><a>黑名单</a></span>
@@ -165,15 +169,16 @@
 	</div>
   </div>
   </div>
-  
-  <div class="tail" >
+   <footer class="tail">
+		<hr>
         <a href="">关于我们</a>
         <a href="">合作伙伴</a>
         <a href="">联系客服</a>
         <a href="connect_us.html">联系我们</a>
         <a href="map.html">网站地图</a>
         <span>© 2013 Black.com 版权所有</span>
-    </div>
+   </footer>
+
   </body>
   
 </html>

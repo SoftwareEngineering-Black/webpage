@@ -2,9 +2,11 @@
 <html>
   <head>
     <title>我是买家</title>   
-    <meta content="text/html" charset=utf-8>        
+    <meta content="text/html" charset=utf-8>   
+    <link href="../css/bootstrap.css" rel="stylesheet" type="text/css" />     
     <link href="../css/style_nomal.css" rel="stylesheet" type="text/css" />
 	<link href="../css/order_manage.css" rel="stylesheet" type="text/css" />
+
 	<script type="text/javascript" src="../js/jquery-1.9.1.js"></script>
 	<script type="text/javascript" src="../js/pagenav1.1.cn.js"></script>
 	<script type="text/javascript">
@@ -32,8 +34,9 @@
 						tbody=document.createElement("tbody");
 						
 						var trNode1=document.createElement("tr");
-						var tdNode1=document.createElement("td");
 						
+						var tdNode1=document.createElement("td");
+						tdNode1.colspan="9";
 						/*订单编号*/
 						var spanNode1=document.createElement("span");
 						var labelNode=document.createElement("label");
@@ -52,7 +55,8 @@
 						/*成交时间*/
 						var spanNode3=document.createElement("span");
 						spanNode3.className="deal-time";
-						spanNode3.innerHTML="成交时间"+jsonpstr[index].X ; /*时间*/
+						spanNode3.innerHTML="成交时间"+jsonpstr[index].X ; 
+						/*卖家姓名*/
 						var spanNode4=document.createElement("span");
 						spanNode4.className="seller";
 						spanNode4.innerHTML="卖家姓名";
@@ -61,39 +65,76 @@
 						tdNode1.appendChild(spanNode3);
 						tdNode1.appendChild(spanNode4);
 						trNode1.appendChild(tdNode1);
-						
-						var trNode2=document.createElement("tr");
-						trNode2.className="order_item";
-						var tdNode2=document.createElement("td");
-						tdNode2.className="item";
-						tdNode2.innerHTML=jsonpstr[index].item;/*商品名称*/
-						var tdNode3=document.createElement("td");
-						tdNode3.className="price";
-						tdNode3.innerHTML=jsonpstr[index].X;/*价格*/
-						var tdNode4=document.createElement("td");
-						tdNode4.className="num";
-						tdNode4.innerHTML=jsonpstr[index].X;/*数量*/
-						var tdNode5=document.createElement("td");
-						tdNode5.className="after_service"; /*退款*/
-						tdNode5.innerHTML="退款";
-						var tdNode6=document.createElement("td");
-						tdNode6.className="logistic";
-						tdNode6.innerHTML=jsonpstr[index].xx;/*物流号*/
-						var tdNode7=document.createElement("td");
-						tdNode7.className="trade_state";
-						tdNode7.innerHTML="买家未付款"; /*需要判断之后输出信息*/
-						var tdNode8=document.createElement("td");
-						tdNode8.className="trade_op";
-						tdNode8.innerHTML="付款";
-						trNode2.appendChild(tdNode2);
-						trNode2.appendChild(tdNode3);
-						trNode2.appendChild(tdNode4);
-						trNode2.appendChild(tdNode5);
-						trNode2.appendChild(tdNode6);
-						trNode2.appendChild(tdNode7);
-						trNode2.appendChild(tdNode8);
 						tbody.appendChild(trNode1);
-						tbody.appendChild(trNode2);
+						for(var i=0;i<jsonpstr[index].itemnum;i++){
+						if(i==0){
+							var trNode2=document.createElement("tr");  /*商品图片*/
+							trNode2.className="order_item";
+							var tdNode1=document.createElement("td");
+							tdNode1.className="item_pic";
+							var aitem=document.createElement("a");
+							var imgitem=document.createElement("img");
+							aitem.appendChild(imgitem);
+							tdNode1.appendChild(aitem);
+					
+							var tdNode2=document.createElement("td");
+							tdNode2.className="item_name";
+							tdNode2.innerHTML=jsonpstr[index].item;/*商品名称*/
+							var tdNode3=document.createElement("td");
+							tdNode3.className="price";
+							tdNode3.innerHTML=jsonpstr[index].X;/*价格*/
+							var tdNode4=document.createElement("td");
+							tdNode4.className="num";
+							tdNode4.innerHTML=jsonpstr[index].X;/*数量*/
+							var tdNode5=document.createElement("td");
+							tdNode5.className="totalprice";
+							tdNode5.innerHTML=jsonpstr[index].X;/*总价*/
+							var tdNode6=document.createElement("td");
+							tdNode6.className="after_service"; /*退款*/
+							tdNode6.innerHTML="退款";
+							var tdNode7=document.createElement("td");
+							tdNode7.className="logistic";
+							tdNode7.innerHTML=jsonpstr[index].xx;/*物流号*/
+							var tdNode8=document.createElement("td");
+							tdNode8.className="trade_state";
+							tdNode8.innerHTML="买家未付款"; /*需要判断之后输出信息*/
+							var tdNode9=document.createElement("td");
+							var aop=document.createElement("a");
+							aop.innerHTML="付款";
+							tdNode9.className="trade_op";
+							tdNode9.appendChile(aop);
+							
+							trNode2.appendChild(tdNode1);
+							trNode2.appendChild(tdNode2);
+							trNode2.appendChild(tdNode3);
+							trNode2.appendChild(tdNode4);
+							trNode2.appendChild(tdNode5);
+							trNode2.appendChild(tdNode6);
+							trNode2.appendChild(tdNode7);
+							trNode2.appendChild(tdNode8);
+							trNode2.appendChild(tdNode9);
+							tbody.appendChild(trNode2);}
+						else{
+							var trNode2=document.createElement("tr");  /*商品图片*/
+							trNode2.className="order_item";
+							var tdNode1=document.createElement("td");
+							tdNode1.className="item_pic";
+							var aitem=document.createElement("a");
+							var imgitem=document.createElement("img");
+							aitem.appendChild(imgitem);
+							tdNode1.appendChild(aitem);
+						
+							var tdNode2=document.createElement("td");
+							tdNode2.className="item";
+							tdNode2.innerHTML=jsonpstr[index].item;/*商品名称*/
+							var tdNode3=document.createElement("td");
+							tdNode3.className="price";
+							tdNode3.innerHTML=jsonpstr[index].X;/*价格*/
+							var tdNode4=document.createElement("td");
+							tdNode4.className="num";
+							tdNode4.innerHTML=jsonpstr[index].X;/*数量*/
+							tbody.appendChild(trNode2);}
+						}
 						}
 						length=length-orderpagenum;
 						divpage.appendChild(tbody);
@@ -120,71 +161,70 @@
 		};
 		pageNav.go(1,pageindex);
     })
-    })
     </script>
   </head>
   <body>
   
   
-  <div class="tophead" >
-  
-  <div class="logo">
-  
-  </div>
-  
-  <div class="menu" >
-    <div class="search">
+  <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container-fluid">
 
+          <a class="brand" href="#">Online Payment</a>
+          <div class="nav-collapse collapse">
+            <p class="navbar-text pull-right">
+              Logged in as <a href="#" class="navbar-link">Username</a>
+            </p>
+            <ul class="nav">
+              <li><a href="#">账户设置</a></li>
+              <li class="active"><a href="order_manage.html">我是买家</a></li>
+              <li><a href="#contact">我是卖家</a></li>
+			  <li><a href="#contact">淘宝贝</a></li>
+			  <li><a href="#contact">在线预订</a></li>
+            </ul>
+          </div><!--/.nav-collapse -->
+        </div>
+      </div>
     </div>
-    <div class="usermenu">
-		<p><span>注册</span> | <span>登陆</span> </p>
-    </div>
-  </div>
-  
-  </div>
-  
-  <div class="main">
-  	<div class="menulist">
-		<div class="menulevel0">
-			<h1>导航栏</h1>
-		</div>
-		<div>
-			<h2>我的交易</h2>
-			<ul>
-				<li><a href="order_manage.html">我的订单</a></li>
-				<li>交易记录</li>			
-			</ul>
-			<h2>商品管理</h2>
-			<ul>
-				<li><a >发布商品</a></li>
-				<li>管理商品</li>			
-			</ul>
-			<h2>投诉与客服</h2>
-			<ul>
-				<li><a href="refund_manage.html">退款管理</a></li>
-				<li><a href="arbitrate_feedback.html">仲裁反馈</a></li>
-			</ul>
-		</div>
-    </div>
+  <div class="hero-unit"></div>
+   <div class="container-fluid">
+	<div class="row-fluid">
+		  <div class="span2">
+          <div class="well sidebar-nav">
+            <ul class="nav nav-list">
+              <li class="nav-header">我的交易</li>
+              <li class="active"><a href="order_manage.html">我的订单</a></li>			
+              <li><a href="#">交易记录</a></li>
+			  <li class="nav-header">商品管理</li>
+			  <li><a >发布商品</a></li>
+			  <li><a>管理商品</a></li>	
+              <li class="nav-header">投诉与客服</li>
+              <li><a href="refund_manage.html">退款管理</a></li>
+			  <li><a href="arbitrate_feedback.html">仲裁反馈</a></li>
+            </ul>
+          </div><!--/.well -->
+        </div><!--/span-->
+        <div class="span10">
+	<div class="main">
+  	
     <div class="order_main">
-      <div class="filterbar">
-      </div>
 	  <div class="rimidebox">
-		<a  href="order_manage.html">我是卖家</a><span>></span><a href="order_manage.html">我的交易</a><span>></span><a href="order_manage.html">我的订单</a>
+		<a href="order_manage.html">我是卖家</a><span>></span><a href="order_manage.html">我的交易</a><span>></span><a href="order_manage.html">我的订单</a>
       </div>
+      <div class="well sidebar-nav">
 	  <div class="order_list">
 		<form class="orderquery">
 			<label for="itemname">商品名称：</label>
 			<input type="text" size="50" id="itemname" value maxlength="30">
 			<input class="itemname_button" type="submit" value="搜索">
 		</form>
-		<table class="bought-list" id="order_list">
+		<table class="bought_list" id="order_list">
 		<thead>
-			<tr class="col_name">
-				<th></th>
-				<th class="item">商品</th>
+			<tr class="col_name">			
+				<th class="item" colspan="2">商品</th>
 				<th class="price">单价(元)</th>
 				<th class="num">数量</th>
+				<th class="totalprice">总价</th>
 				<th class="after_service">售后</th>
 				<th class="logistic">物流状态</th>
 				<th class="trade_state">
@@ -200,10 +240,10 @@
 						</select>
 					</div>
 				</th>
-				<th>交易操作</th>
+				<th class="trade_op">交易操作</th>
 			</tr>
 			<tr class="toolbar">
-				<td>
+				<td colspan="7">
 					<label><input type="checkbox" class="all-selector" id="AllSelector">全选</label>
 					<a href="#">合并付款</a>
 					<a href="#">批量确认收货</a>
@@ -214,35 +254,48 @@
 		</thead>
 		<tbody>
 			<tr class="order_head">
-				<td>
+				<td  colspan="9">
 				<span><label><input type="checkbox" class="selector" id="00001" >订单编号：<span class="order_num">00001</span></label></span>
 				<span class="deal-time">成交时间：xxxxxx</span>
 				<span class="seller">卖家姓名</span></td>
 			</tr>
 			<tr class="order_item">
+				<td class="item_pic"><a><img/></a></td>
+				<td class="item_name">aaaaaaaaaaaaaaaaaaaaa</td>
+				<td class="price">10.00</td>
+				<td class="num">10</td>
+				<td class="totalprice" rowspan="2">200</td>
+				<td class="after_service" rowspan="2">退款</td>
+				<td class="logistic" rowspan="2">000001</td>
+				<td class="trade_state" rowspan="2">买家未付款</td>
+				<td class="trade_op" rowspan="2"><a href="#">付款</a></td>
+			</tr>
+			<tr class="order_item">
+				<td class="item_pic"><a><img/></a></td>
 				<td class="item">aaa</td>
 				<td class="price">10.00</td>
 				<td class="num">10</td>
-				<td class="after_service">退款</td>
-				<td class="logistic">000001</td>
-				<td class="trade_state">买家未付款</td>
-				<td class="trade_op">付款</td>
 			</tr>
 		</tbody>
 		</table>
 		<div class="pageNac"></div>
       </div>
+      </div>
     </div>
-  </div>
-  
-  <div class="tail" >
-		<a href="">关于我们</a>
+	</div>
+        </div>
+    </div>
+	</div>
+   <footer class="tail">
+		<hr>
+        <a href="">关于我们</a>
         <a href="">合作伙伴</a>
         <a href="">联系客服</a>
         <a href="../other/connect_us.html">联系我们</a>
         <a href="../other/map.html">网站地图</a>
         <span>© 2013 Black.com 版权所有</span>
-		</div>
+   </footer>
+  
   </body>
   
 </html>

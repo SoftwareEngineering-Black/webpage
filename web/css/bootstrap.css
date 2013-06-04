@@ -1217,8 +1217,7 @@ textarea {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 label {
-  display: block;
-  margin-bottom: 5px;
+	margin-bottom: 5px;
 }
 select,
 textarea,
@@ -4465,6 +4464,7 @@ a.thumbnail:focus {
   -webkit-border-radius: 6px;
   -moz-border-radius: 6px;
   border-radius: 6px;
+  background-image:url(../img/glyphicons-halflings.png);
 }
 .hero-unit h1 {
   margin-bottom: 0;

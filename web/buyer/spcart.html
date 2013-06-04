@@ -1,86 +1,92 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>我是买家</title>   
-    <meta charset=utf-8>        
+    <title>购物车</title>   
+    <meta charset=utf-8>  
+	<link href="../css/bootstrap.css" rel="stylesheet" type="text/css" />   	
     <link href="../css/style_nomal.css" rel="stylesheet" type="text/css" />
   </head>
   <body>
   
   
-  <div class="tophead" >
-  
-  <div class="logo">
-  
-  </div>
-  
-  <div class="menu" >
-    <div class="search">
+  <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container-fluid">
 
-    </div>
-    <div class="usermenu">
-		<p><span>注册</span> | <span>登陆</span> </p>
-    </div>
-  </div>
-  
-  </div>
-  
-  <div class="main">
-  	<div class="menulist">
-		<div class="menulevel0">
-			<h1>导航栏</h1>
-		</div>
-		<div>
-			<h2>我的交易</h2>
-			<ul>
-				<li><a href="order_manage.html">我的订单</a></li>
-				<li><a href="spcart.html">购物车</a></li>
-				<li>交易记录</li>			
-			</ul>
-			<h2>投诉与客服</h2>
-			<ul>
-				<li><a href="refund_manage.html">退款管理</a></li>
-				<li><a href="arbitrate_feedback.html">仲裁反馈</a></li>
-			</ul>>仲裁反馈</li>
-			</ul>
-		</div>
-    </div>
-    <div class="order_main">
-      <div class="filterbar">
+          <a class="brand" href="#">Online Payment</a>
+          <div class="nav-collapse collapse">
+            <p class="navbar-text pull-right">
+              Logged in as <a href="#" class="navbar-link">Username</a>
+            </p>
+            <ul class="nav">
+              <li><a href="#">账户设置</a></li>
+              <li class="active"><a href="order_manage.html">我是买家</a></li>
+              <li><a href="#contact">我是卖家</a></li>
+			  <li><a href="#contact">淘宝贝</a></li>
+			  <li><a href="#contact">在线预订</a></li>
+            </ul>
+          </div><!--/.nav-collapse -->
+        </div>
       </div>
+    </div>
+  
+
+  <div class="hero-unit"></div>
+   <div class="container-fluid">
+	<div class="row-fluid">
+		  <div class="span2">
+          <div class="well sidebar-nav">
+            <ul class="nav nav-list">
+              <li class="nav-header">我的交易</li>
+              <li><a href="order_manage.html">我的订单</a></li>
+              <li class="active"><a href="spcart.html">购物车</a></li>			
+              <li><a href="#">交易记录</a></li>
+              <li class="nav-header">投诉与客服</li>
+              <li><a href="refund_manage.html">退款管理</a></li>
+			  <li><a href="arbitrate_feedback.html">仲裁反馈</a></li>
+            </ul>
+          </div><!--/.well -->
+        </div><!--/span-->
+        <div class="span10">
+	<div class="main">
+    <div class="order_main">
 	  <div class="rimidebox">
 		<a  href="order_manage.html">我是买家</a><span>></span><a href="order_manage.html">我的交易</a><span>></span><a href="spcart.html">我的购物车</a>
       </div>
+	  <div class="well sidebar-nav">
 	  <div class="spcart_top">
-		<span>商品总价(不含运费) :</span><span>00000.00</span><span>&nbsp</span>
+		<span>商品总价(不含运费) :</span><span>00000.00</span><span>&nbsp </span>
 		<input class="search_button" type="submit"value="提交">
       </div>
       <div class="spcart_middle">
       	
       	
 		<span><label ><input type="checkbox" class="all-selector" id="AllSelector">全选</label></span>
-		<span> &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</span>
+		<span> &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp </span>
 		<span>商品信息</span>
-		<span> &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</span>
+		<span> &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp </span>
 		<span>小计（元）</span>
       </div>
-      <div class="order_list">
       
-      </div>
       <div class="spcart_bottom">
 		<span style="display:block;float:right;"><input class="upload_button" type="submit"value="提交"></span>
 	  </div>      
-    </div>
+	  </div>
+	</div>
   </div>
-  
-  <div class="tail" >
-		<a href="">关于我们</a>
+  </div>
+	</div>
+	</div>
+  <footer class="tail">
+		<hr>
+        <a href="">关于我们</a>
         <a href="">合作伙伴</a>
         <a href="">联系客服</a>
         <a href="../other/connect_us.html">联系我们</a>
         <a href="../other/map.html">网站地图</a>
         <span>© 2013 Black.com 版权所有</span>
-		</div>
+   </footer>
   </body>
-  
-</html
+	
+	
+</html>
