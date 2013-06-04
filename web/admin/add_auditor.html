@@ -2,53 +2,57 @@
 <html>
   <head>
     <title>增加订单管理员</title>   
-    <meta charset=utf-8>        
+    <meta charset=utf-8>   
+	<link href="../css/bootstrap.css" rel="stylesheet" type="text/css" /> 
 	<link href="../css/style_nomal.css" rel="stylesheet" type="text/css" />
     <link href="../css/Add_auditor.css" rel="stylesheet" type="text/css" />
   </head>
   <body>
   
   
-  <div class="tophead" >
-  
-  <div class="logo">
-  
-  </div>
-  
-  <div class="menu" >
+  <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container-fluid">
 
-    <div class="usermenu">
-		<p><span>注册</span> | <span>登陆</span> | <span>登出</span></p>
+          <a class="brand" href="#">Online Payment</a>
+          <div class="nav-collapse collapse">
+            <p class="navbar-text pull-right">
+              Logged in as <a href="#" class="navbar-link">Username</a>
+            </p>
+            <ul class="nav">
+              <li><a href="#">账户设置</a></li>
+              <li><a href="../buyer/order_manage.html">我是买家</a></li>
+              <li><a href="../seller/order_manage.html">我是卖家</a></li>
+			  <li><a href="#contact">淘宝贝</a></li>
+			  <li><a href="#contact">在线预订</a></li>
+            </ul>
+          </div><!--/.nav-collapse -->
+        </div>
+      </div>
     </div>
-  </div>
-  
-  </div>
-  
+  <div class="hero-unit"></div>
+  <div class="container-fluid">
+	<div class="row-fluid">
+		  <div class="span2">
+          <div class="well sidebar-nav">
+            <ul class="nav nav-list">
+              <li class="nav-header">系统</li>
+              <li><a href="">统计信息</a></li>
+              <li><a href="">异常日志</a></li>
+			  <li><a href="system_config.html">系统配置</a></li>
+              <li class="nav-header">管理员</li>
+              <li><a href="add_system_administrator.html">增加系统管理员</a></li>
+			  <li class="active"><a href="add_auditor.html">增加订单管理员</a></li>
+			  <li class="nav-header">用户</li>
+              <li><a href="">用户账户管理</a></li>
+			  <li><a href="">实名制认证</a></li>
+			  <li><a href="">黑名单管理</a></li>
+			  
+            </ul>
+          </div><!--/.well -->
+        </div><!--/span-->
+        <div class="span10">
   <div class="main">
-  	<div class="menulist">
-		<div class="menulevel0">
-			<h1>导航栏</h1>
-		</div>
-		<div>
-			<h2>系统  </h2>
-			<ul>
-				<li>统计信息</li>
-				<li>异常日志</li>
-				<li>系统配置</li>
-			</ul>
-			<h2>管理员</h2>
-			<ul>
-				<li>增加系统管理员</li>
-				<li>增加订单管理员</li>
-			</ul>
-			<h2>用户  </h2>
-			<ul>
-				<li>用户账户管理</li>
-				<li>实名制认证  </li>
-				<li>黑名单管理  </li>
-			</ul>
-		</div>
-    </div>
     <div class="shopping_main">
       <div class="subtitle">
 	     <br>
@@ -61,7 +65,7 @@
 	  <br>
 	  <br>
 	  <div class="reg">
-	  <from action='' method='get' id='' name=''>
+	  <form action='' method='get' id='' name=''>
 	  <table align='center'>
 	  <tr algin='right'><td rowspan='2'><h3>用户名:<h3></td><td><input type='text' id='textarea' name='username'/></td></tr>
 	  <tr></tr>
@@ -74,25 +78,40 @@
 	  <tr><td></td><td>请再次输入密码！</td></tr>
 	  <tr><td rowspan='2'><h3>验证码：</h3></td><td><input type='text' id='textarea' name='assurance'/></td></tr>
 	  <tr></tr>
-	  <tr><td></td><td>请输入验证码！</td></tr><tr><td colspan='2'>
+	  <tr><td></td><td>请输入验证码！</td></tr>
+	  <tr><td colspan='2'>
 	  <br>
 	  <br>
-	  </div>	  
+	  	  
 	  <div class="tips">
             <h2>Tips</h2>
             <li>在增加订单管理员之前您必须了解如下信息</li>
-            <li> 1、订单管理员具有权限可以对订单进行查看修改<li/>
-            <li> 2、...........<li/>
-            <li>3、...........<li/>
+            <li> 1、订单管理员具有权限可以对订单进行查看修改</li>
+            <li> 2、...........</li>
+            <li>3、...........</li>
       </div>  
 	  <br>
 	  <br>
-	  <input type="checkbox" onClick='document.getElementById("submit").disabled=!this.checked;'><b>我已经阅读过提示并确定要增加订单管理员</b>
+	  <input type="checkbox" onClick='document.getElementById("submit").disabled=!this.checked;'><p>我已经阅读过提示并确定要增加订单管理员</p>
       <br>
 	  <br>
-	  <input type="submit" id="submit" value="提交" disabled></td></tr></table></from>"; 
+	  <input type="submit" id="submit" value="提交" disabled></td></tr>
+	  </table>
+	  </form> 
     </div>
-  </div>    
-  <div class="tail" >此处显示  class "tail" 的内容</div>
+	</div>
+  </div>   
+		</div> <!--/span-->
+    </div>
+	</div>		
+   <footer class="tail">
+		<hr>
+        <a href="">关于我们</a>
+        <a href="">合作伙伴</a>
+        <a href="">联系客服</a>
+        <a href="../other/connect_us.html">联系我们</a>
+        <a href="../other/map.html">网站地图</a>
+        <span>© 2013 Black.com 版权所有</span>
+   </footer>
   </body>
 </html>
