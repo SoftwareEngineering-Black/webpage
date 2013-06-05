@@ -27,5 +27,12 @@ body{
       }
 
 .tail{
-text-align:center;
+	text-align:center;
+}
+label{
+	display:inline;
+}
+.hero-unit
+{
+	  background-image:url(../img/glyphicons-halflings.png);
 }
