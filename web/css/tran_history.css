@@ -1,9 +1,11 @@
+@charset "utf-8";
+/* CSS Document */
 
 /* custom css style: pageNum,cPageNum */
 .pageNum{border: 1px solid #999;padding:2px 8px;display: inline-block;}
 .cPageNum{font-weight: bold;padding:2px 5px;}
 #pageNav a:hover{text-decoration:none;background: #fff4d8; }
-/*create by zmy for order*/
+/*create by zmy for tran*/
 
 
 .order_list
@@ -48,3 +50,4 @@
 	position:relative;
 	top:10px;
 }
+

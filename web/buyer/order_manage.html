@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html>
   <head>
     <title>我是买家</title>   
@@ -178,7 +178,7 @@
             <ul class="nav">
               <li><a href="#">账户设置</a></li>
               <li class="active"><a href="order_manage.html">我是买家</a></li>
-              <li><a href="#contact">我是卖家</a></li>
+              <li><a href="../seller/order_manage.html">我是卖家</a></li>
 			  <li><a href="#contact">淘宝贝</a></li>
 			  <li><a href="#contact">在线预订</a></li>
             </ul>
@@ -195,7 +195,7 @@
               <li class="nav-header">我的交易</li>
               <li class="active"><a href="order_manage.html">我的订单</a></li>
               <li><a href="spcart.html">购物车</a></li>			
-              <li><a href="#">交易记录</a></li>
+              <li><a href="tran_history.html">交易记录</a></li>
               <li class="nav-header">投诉与客服</li>
               <li><a href="refund_manage.html">退款管理</a></li>
 			  <li><a href="arbitrate_feedback.html">仲裁反馈</a></li>
@@ -205,18 +205,37 @@
         <div class="span10">
 	<div class="main">
   	
-    <div class="order_main">
 	  <div class="rimidebox">
 		<a href="order_manage.html">我是买家</a><span>></span><a href="order_manage.html">我的交易</a><span>></span><a href="order_manage.html">我的订单</a>
       </div>
-      <div class="well sidebar-nav">
+      
 	  <div class="order_list">
 		<form class="orderquery">
-			<label for="itemname">商品名称：</label>
-			<input type="text" size="50" id="itemname" value maxlength="30">
-			<input class="itemname_button" type="submit" value="搜索">
+            	<label class="control-label" for="time">成交时间</label>
+            	<select id="timequery">
+                  <option>1</option>
+                  <option>2</option>
+                  <option>3</option>
+                  <option>4</option>
+                  <option>5</option>
+                </select>
+                
+            	<label class="control-label" for="time">交易状态</label>
+            	<select id="statequery">
+                			<option data-msg="全部" value="ALL">全部</option>
+							<option data-msg="等待买家付款" value="ALL">等待买家付款</option>
+							<option data-msg="买家已付款" value="ALL">买家已付款</option>
+							<option data-msg="卖家已发货" value="ALL">卖家已发货</option>
+							<option data-msg="交易成功" value="ALL">交易成功</option>
+							<option data-msg="交易关闭" value="ALL">交易关闭</option>
+							<option data-msg="退款中的订单" value="ALL">退款中的订单</option>
+                </select>
+             <div>
+			 <button type="submit" class="btn">搜索</button>
+             </div>
 		</form>
-		<table class="bought_list" id="order_list">
+        <div class="well">
+		<table class="table bought_list " id="order_list">
 		<thead>
 			<tr class="col_name">			
 				<th class="item" colspan="2">商品</th>
@@ -226,8 +245,8 @@
 				<th class="after_service">售后</th>
 				<th class="logistic">物流状态</th>
 				<th class="trade_state">
-					<div  class="trade_state">
-						<select id="TrandeStatesHandle">
+					<div  class="trade_statediv">
+						<select id="TrandeStatesHandle" class="input-medium">
 							<option data-msg="交易状态" value="ALL">交易状态</option>
 							<option data-msg="等待买家付款" value="ALL">等待买家付款</option>
 							<option data-msg="买家已付款" value="ALL">买家已付款</option>
@@ -276,12 +295,11 @@
 			</tr>
 		</tbody>
 		</table>
-		<div class="pageNac"></div>
+		<div class="pageNac">a</div>
+      	</div>
       </div>
-      </div>
-    </div>
-	</div>
-        </div>
+     </div>
+   		</div>
     </div>
 	</div>
    <footer class="tail">

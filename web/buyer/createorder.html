@@ -1,11 +1,11 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html>
   <head>
-    <title>购物车</title>   
-    <meta charset=utf-8>  
+    <title>确认订单</title>   
+    <meta charset=utf-8> 
+    <script src="../js/pro_city.js"></script> 
 	<link href="../css/bootstrap.css" rel="stylesheet" type="text/css" />   	
     <link href="../css/style_nomal.css" rel="stylesheet" type="text/css" />
-    <link href="../css/spcart.css" rel="stylesheet" type="text/css" />
   </head>
   <body>
   
@@ -22,7 +22,7 @@
             <ul class="nav">
               <li><a href="#">账户设置</a></li>
               <li class="active"><a href="order_manage.html">我是买家</a></li>
-              <li><a href="../seller/order_manage.html">我是卖家</a></li>
+              <li><a href="#contact">我是卖家</a></li>
 			  <li><a href="#contact">淘宝贝</a></li>
 			  <li><a href="#contact">在线预订</a></li>
             </ul>
@@ -35,30 +35,54 @@
   <div class="hero-unit"></div>
    <div class="container-fluid">
 	<div class="row-fluid">
-		  <div class="span2">
-          <div class="well sidebar-nav">
-            <ul class="nav nav-list">
-              <li class="nav-header">我的交易</li>
-              <li><a href="order_manage.html">我的订单</a></li>
-              <li class="active"><a href="spcart.html">购物车</a></li>			
-              <li><a href="tran_history.html">交易记录</a></li>
-              <li class="nav-header">投诉与客服</li>
-              <li><a href="refund_manage.html">退款管理</a></li>
-			  <li><a href="arbitrate_feedback.html">仲裁反馈</a></li>
-            </ul>
-          </div><!--/.well -->
-        </div><!--/span-->
-        <div class="span10">
+        <div class="span12">
 	<div class="main">
 	  <div class="rimidebox">
-		<a  href="order_manage.html">我是买家</a><span>></span><a href="order_manage.html">我的交易</a><span>></span><a href="spcart.html">我的购物车</a>
+		<a  href="order_manage.html">我是买家</a><span>></span><a href="order_manage.html">我的交易</a><span>></span><a href="createorder.html">确认订单</a>
       </div>
-
-	  <div class="spcart_top  text-right">
-		<span>商品总价(不含运费) :</span><span>00000.00</span><span>&nbsp </span>
-		<input class="btn" type="submit"value="结算">
+      <h3>确认收货地址</h3>
+      <div class="well sidebar-nav">
+      <form class="form-horizontal">
+      <div class="control-group">
+         <label class="control-label" for="city">城市</label>
+ 		 <div class="controls">
+   			<script>
+			scity("sel_province","sel_city","浙江省","杭州市");
+			</script>
+ 		 </div>
+       </div>
+  	   <div class="control-group">
+   			<label class="control-label" for="inputyoubian">邮编</label>
+            <div class="controls">
+            <input type="text" class="input-small"id="inputyoubian"/>
+            </div>
+  	   </div>
+       <div class="control-group">
+   			<label class="control-label" for="inputaddress">家庭地址</label>
+            <div class="controls">
+            <textarea rows="3" id="inputaddress"class="input-xxlarge"></textarea>
+            </div>
+  	   </div>
+       <div class="control-group">  
+   			<label class="control-label" for="inputbuyername">收货人</label>
+            <div class="controls">
+            <input type="text" class="input-small"id="inputbuyername"/>
+            </div>
+  	   </div>
+       <div class="control-group">
+   			<label class="control-label" for="inputbuytel">电话</label>
+            <div class="controls">
+            <input type="text" class="input-small"id="inputbuytel"/>
+            </div>
+  	    </div>
+        <div class="control-group">
+            
+        </div>
+		</form>
       </div>
-      <div class="spcart_middle well sidebar-nav">
+	  <h3>确认订单信息</h3>
+      <div class="orderinfo well sidebar-nav">
+      
       	<table class="table table-striped">
        	 <thead>
          	<th class="item_pic"></th>
@@ -66,26 +90,23 @@
             <th class="price">单价</th>
             <th class="num">数量</th>
             <th class="totalprice">小计</th>
-            <th>
-            </th>
        	 </thead>
        	 <tbody>
-			<tr class="spcart_head"><td  colspan="6">
+			<tr class="spcart_head"><td  colspan="5">
 				卖家:<span class="seller">zmy</span></td></tr>
             <tr class="order_item">
             	<td class="item_pic"><a><img/></a></td>
 				<td class="item_name">aaaaaaaaaaaaaaaaaaaaa</td>
 				<td class="price">10.00</td>
-				<td class="num"><input  class="input-small" type="number"  min="1" max="1000" value="1"></td>
-				<td class="totalprice">200</td>
-				<td class="trade_op"><a href="#">删除</a></td></tr>
+				<td class="num">10</td>
+				<td class="totalprice">200</td></tr>
             <tr class="order_item">
             	<td class="item_pic"><a><img/></a></td>
 				<td class="item_name">aaaaaaaaaaaaaaaaaaaaa</td>
 				<td class="price">10.00</td>
-				<td class="num"><input  class="input-small" type="number"  min="1" max="1000" value="1"></td>
-				<td class="totalprice">200</td>
-				<td class="trade_op"><a href="#">删除</a></td></tr>
+				<td class="num">10</td>
+				<td class="totalprice">200</td></tr>
+            <tr class="logistic"><td colspan="4">运送方式：快递</td><td>10</td></tr>
           </tbody>
           <tbody>
 			<tr class="spcart_head"><td  colspan="6">
@@ -94,15 +115,15 @@
             	<td class="item_pic"><a><img/></a></td>
 				<td class="item_name">aaaaaaaaaaaaaaaaaaaaa</td>
 				<td class="price">10.00</td>
-				<td class="num"><input  class="input-small" type="number"  min="1" max="1000" value="1"></td>
-				<td class="totalprice">200</td>
-				<td class="trade_op"><a href="#">删除</a></td></tr>
+				<td class="num">10</td>
+				<td class="totalprice">200</td></tr>
+            <tr class="logistic"><td colspan="4">运送方式：快递</td><td>10</td></tr>
           </tbody>
 		</table>
       </div>
       
-      <div class="spcart_bottom  text-right">
-		<h3><span>商品总价:</span><span id="totalprice">&#65509;600 </span><input class="btn btn-success" type="submit"value="结算"></h3>
+      <div class="order_bottom  text-right">
+		<h3><span>实付款:</span><span id="totalprice">&#65509;620 </span><input class="btn btn-success" type="submit"value="提交订单"></h3>
 	  </div>      
   </div>
   </div>

@@ -1,0 +1,153 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+  <head>
+    <title>交易历史查询</title>   
+    <meta content="text/html" charset=utf-8>   
+    <link href="../css/bootstrap.css" rel="stylesheet" type="text/css" />     
+    <link href="../css/style_nomal.css" rel="stylesheet" type="text/css" />
+	<link href="../css/tran_history.css" rel="stylesheet" type="text/css" />
+	<script type="text/javascript" src="../js/jquery-1.9.1.js"></script>
+
+  </head>
+  <body>
+  
+  
+  <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container-fluid">
+
+          <a class="brand" href="#">Online Payment</a>
+          <div class="nav-collapse collapse">
+            <p class="navbar-text pull-right">
+              Logged in as <a href="#" class="navbar-link">Username</a>
+            </p>
+            <ul class="nav">
+              <li><a href="#">账户设置</a></li>
+              <li><a href="../buyer/order_manage.html">我是买家</a></li>
+              <li class="active"><a href="order_manage.html">我是卖家</a></li>
+			  <li><a href="#contact">淘宝贝</a></li>
+			  <li><a href="#contact">在线预订</a></li>
+            </ul>
+          </div><!--/.nav-collapse -->
+        </div>
+      </div>
+    </div>
+  <div class="hero-unit"></div>
+   <div class="container-fluid">
+	<div class="row-fluid">
+		  <div class="span2">
+          <div class="well sidebar-nav">
+            <ul class="nav nav-list">
+              <li class="nav-header">我的交易</li>
+              <li><a href="order_manage.html">我的订单</a></li>			
+              <li class="active"><a href="tran_history.html">交易记录</a></li>
+			  <li class="nav-header">商品管理</li>
+			  <li><a >发布商品</a></li>
+			  <li><a>管理商品</a></li>	
+              <li class="nav-header">投诉与客服</li>
+              <li><a href="refund_manage.html">退款管理</a></li>
+			  <li><a href="arbitrate_feedback.html">仲裁反馈</a></li>
+            </ul>
+          </div><!--/.well -->
+        </div><!--/span-->
+        <div class="span10">
+	<div class="main">
+  	
+	  <div class="rimidebox">
+		<a href="order_manage.html">我是卖家</a><span>></span><a href="order_manage.html">我的交易</a><span>></span><a href="tran_history.html">交易记录</a>
+      </div>
+      
+	  <div class="order_list">
+		<form class="orderquery">
+            	<label class="control-label" for="time">成交时间</label>
+            	<select id="timequery">
+                  <option>1</option>
+                  <option>2</option>
+                  <option>3</option>
+                  <option>4</option>
+                  <option>5</option>
+                </select>
+                
+            	<label class="control-label" for="time">交易状态</label>
+            	<select id="statequery">
+                		<option data-msg="全部" value="ALL">全部</option>
+						<option data-msg="等待买家付款" value="ALL">等待买家付款</option>
+						<option data-msg="买家已付款" value="ALL">买家已付款</option>
+						<option data-msg="卖家已发货" value="ALL">卖家已发货</option>
+						<option data-msg="交易成功" value="ALL">交易成功</option>
+						<option data-msg="交易关闭" value="ALL">交易关闭</option>
+						<option data-msg="退款中的订单" value="ALL">退款中的订单</option>
+                </select>
+             <div>
+			 <button type="submit" class="btn">搜索</button>
+             </div>
+		</form>
+        <div class="well">
+		<table class="table bought_list " id="order_list">
+		<thead>
+			<tr class="col_name">			
+				<th class="item" colspan="2">商品</th>
+				<th class="price">单价(元)</th>
+				<th class="num">数量</th>
+				<th class="totalprice">总价</th>
+				<th class="logistic">物流状态</th>
+				<th class="trade_state">
+					<div  class="trade_state">
+						<select id="TrandeStatesHandle" class="input-medium">
+							<option data-msg="交易状态" value="ALL">交易状态</option>
+							<option data-msg="等待买家付款" value="ALL">等待买家付款</option>
+							<option data-msg="买家已付款" value="ALL">买家已付款</option>
+							<option data-msg="卖家已发货" value="ALL">卖家已发货</option>
+							<option data-msg="交易成功" value="ALL">交易成功</option>
+							<option data-msg="交易关闭" value="ALL">交易关闭</option>
+							<option data-msg="退款中的订单" value="ALL">退款中的订单</option>
+						</select>
+					</div>
+				</th>
+			</tr>
+
+		</thead>
+		<tbody>
+			<tr class="order_head">
+				<td  colspan="7">
+				订单编号：<span class="order_num">00001 </span>
+                成交时间：<span class="deal-time"> xxxxxx </span>
+                卖家姓名： <span class="seller"> cry </span></td>
+			</tr>
+			<tr class="order_item">
+				<td class="item_pic"><a><img/></a></td>
+				<td class="item_name">aaaaaaaaaaaaaaaaaaaaa</td>
+				<td class="price">10.00</td>
+				<td class="num">10</td>
+				<td class="totalprice" rowspan="2">200</td>
+				<td class="logistic" rowspan="2">000001</td>
+				<td class="trade_state" rowspan="2">买家未付款</td>
+			</tr>
+			<tr class="order_item">
+				<td class="item_pic"><a><img/></a></td>
+				<td class="item">aaa</td>
+				<td class="price">10.00</td>
+				<td class="num">10</td>
+			</tr>
+		</tbody>
+		</table>
+		<div class="pageNac">a</div>
+      	</div>
+      </div>
+     </div>
+   		</div>
+    </div>
+	</div>
+   <footer class="tail">
+		<hr>
+        <a href="">关于我们</a>
+        <a href="">合作伙伴</a>
+        <a href="">联系客服</a>
+        <a href="../other/connect_us.html">联系我们</a>
+        <a href="../other/map.html">网站地图</a>
+        <span>© 2013 Black.com 版权所有</span>
+   </footer>
+  
+  </body>
+  
+</html>
