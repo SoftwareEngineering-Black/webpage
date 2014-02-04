@@ -3,8 +3,41 @@
   <head>
     <title>国内机票搜索</title>   
     <meta charset=utf-8>        
-	<link href="../css/bootstrap.css" rel="stylesheet" type="text/css" />
-    <link href="../css/style_nomal.css" rel="stylesheet" type="text/css" />
+	<link href="/css/bootstrap.css" rel="stylesheet" type="text/css" />
+    <link href="/css/style_nomal.css" rel="stylesheet" type="text/css" />
+<!--what a mess code.-->
+<script src="/js/jquery.js"></script>
+<script>
+/*
+ * I'm here just providing a sample to you(well, I mean Chen Ziheng..)
+ * This function requires further moficications.
+ * COPYLEFT, ALL WRONGS RESERVED. 
+ */
+function fetch_flight(d_city, a_city, d_date) { 
+    console.log(d_city);
+    $('#flight_list').html('查询中, 请稍候...')
+    $.getJSON(
+        "/flight/search/async",
+        { 
+            departure_city: d_city, 
+            arrival_city:   a_city, 
+            departure_date: d_date, 
+        },
+        function(data) {
+            console.log(data)
+            $('#flight_list').html('')
+            for (var i in data.flight) {
+                flight = data.flight[i]
+                console.log(flight)
+                $("#flight_list").append($("<div>", { html: flight.join(", ") }))
+            }
+            if (data.flight.length == 0)
+                $('#flight_list').html('未查询到满足条件的航班')
+        }
+    );
+}
+</script>
+
   </head>
   <body>
   
@@ -52,28 +85,31 @@
 	  <div class="well sidebar-nav">
 	  <div class="order_list">
 		<div class="hotelbook">
-			<form action="/search.jsp" method="get" name="sForm" id="sForm" class="orderquery">
 				<div>
 					<label>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</label><label><input type="checkbox" class="singletrip" id="singletrip" checked>&nbsp单程</label><label>&nbsp&nbsp&nbsp&nbsp</label><label><input type="checkbox" class="roundtrip" id="roundtrip">&nbsp往返</label>
 				</div>
 				<div>
 					<label> 城市 </label>
 					<label> 从：</label>
-					<input type="text" size="20" id="cityname" value maxlength="30">
+					<input type="text" size="20" id="departure_city" value maxlength="30">
 					<label> 到：</label>
-					<input type="text" size="20" id="cityname" value maxlength="30">
+					<input type="text" size="20" id="arrival_city" value maxlength="30">
 				</div>
 				<li> </li>
 				<div>
 					<label> &nbsp&nbsp&nbsp&nbsp日期 :&nbsp </label>
-					<input type="text" size="20" id="cityname" value maxlength="30">
+					<input type="text" size="20" id="departure_date" value maxlength="30">
 					<label>&nbsp&nbsp&nbsp </label>
-					<input class="search_button" type="submit"value="搜索">
+					<input class="search_button" type="button" value="搜索" 
+                        onclick="fetch_flight(
+                            $('#departure_city').val(),
+                            $('#arrival_city').val(),
+                            $('#departure_date').val()
+                            )">
 				</div>
-            </form>
-			
 		</div>		
 	   </div>
+        <div id='flight_list'></div>
 	  </div>
     </div>
 		</div>
